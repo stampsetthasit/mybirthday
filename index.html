@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setthasit's birthday</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+<!-- CSS -->
+<style>
+    *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #6495ED;
+        font-family: 'Varela Round', sans-serif;
+        color: white;
+    }
+
+    p {
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    span {
+        font-size: 24px;
+        font-weight: 800;
+        color: rgb(255, 0, 0);
+    }
+
+    .d_tbl{
+        display:table;
+        width:100%;
+        height:200px;
+    }
+
+    .d_tblCel{
+        vertical-align: middle;
+        display: table-cell;
+        text-align: center;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="d_tbl">
+            <div class="d_tblCel">
+                <h1>Friday, 25 October 2002 is Setthasit's birthday.</h1>
+                <p class="text-center">
+                    Well, I'm <span id="years">-</span> Years, <span id="months">-</span> Months, <span id="days">-</span> Days old
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        window.onload = event => {
+            calc();
+        }
+
+        const months = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        const dob = new Date('25 October 2002, 10:30:22');
+        let span = document.querySelectorAll("span");
+
+        
+        function calc() {
+            var date = new Date(),
+                day = date.getDate(),
+                month = date.getMonth(),
+                year = date.getFullYear(),
+                hour = date.getHours(),
+                minute = date.getMinutes(),
+                second = date.getSeconds();
+
+            var mDay = 30 + day - dob.getDate(),
+                mMonth = 12 + month - dob.getMonth(),
+                mYear = year - 1 - dob.getFullYear();
+            
+            // CheckDay
+            if (mDay >= 30) {
+                mDay = 0 + mDay % 30;
+                mMonth = mMonth;
+            }
+            else {
+                mDay = mDay;
+                mMonth = mMonth;
+            }
+
+            // CheckMonth 
+            if (mMonth >= 12) {
+                mMonth = mMonth % 12;
+                mYear = mYear + 1;
+            }
+            else {
+                mDay = mDay;
+                mMonth = mMonth;
+            }
+
+            setInterval(calc, 1000);
+
+            // Display Results
+            span[0].textContent = mYear
+            span[1].textContent = mMonth
+            span[2].textContent = mDay
+        }
+
+        
+
+        // function leapChecker(year) {
+        //     if (year % 4 == 0 || (year % 100 == 0 && year % 400 == 0)) {
+        //         months[1] = 29;
+        //     }
+        //     else {
+        //         months[1] = 28;
+        //     }
+        // }
+         
+    </script>
+</body>
+</html>
