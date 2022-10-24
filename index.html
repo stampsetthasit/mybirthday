@@ -51,10 +51,23 @@
     <div class="container">
         <div class="d_tbl">
             <div class="d_tblCel">
-                <h1>Friday, 25 October 2002 is Setthasit's birthday.</h1>
-                <p class="text-center">
-                    Well, I'm <span id="years">-</span> Years, <span id="months">-</span> Months, <span id="days">-</span> Days old
-                </p>
+                <div class="mt-5">
+                    <h1>Friday, 25 October 2002 is Setthasit's birthday. 🎂</h1>
+                    <p class="text-center">
+                        Well, I'm <span id="years">-</span> Years, <span id="months">-</span> Months, <span id="days">-</span> Days old
+                    </p>
+                </div>
+                <div class="mt-5 border rounded border-4">
+                    <h2 class="pt-4">✨ My Live Age 🎉</h2>
+                    <p class="text-center p-1">
+                        <span id="years" style="color: #f4c430; text-decoration: underline;">-</span> Years,
+                        <span id="months" style="color: #f4c430; text-decoration: underline;">-</span> Months,
+                        <span id="days" style="color: #f4c430; text-decoration: underline;">-</span> Days,
+                        <span id="hours">-</span> Hours,
+                        <span id="minutes">-</span> Minutes,
+                        <span id="seconds">-</span> Seconds
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -102,13 +115,39 @@
                 mDay = mDay;
                 mMonth = mMonth;
             }
-
-            setInterval(calc, 1000);
+            // Check Everything
+            if (hour < 10) {
+                hour = "0" + hour
+            }
+            if (minute < 10) {
+                minute = "0" + minute
+            }
+            if (second < 10) {
+                second = "0" + second
+            }
+            if (mDay < 10) {
+                mDay = "0" + mDay
+            }
+            if (mMonth < 10) {
+                mMonth = "0" + mMonth
+            }
+            if (mYear < 10) {
+                mYear = "0" + mYear
+            }
 
             // Display Results
             span[0].textContent = mYear
             span[1].textContent = mMonth
             span[2].textContent = mDay
+            span[3].textContent = mYear
+            span[4].textContent = mMonth
+            span[5].textContent = mDay
+            span[6].textContent = hour
+            span[7].textContent = minute
+            span[8].textContent = second
+
+
+            setInterval(calc, 1000);
         }
 
         
@@ -124,4 +163,4 @@
          
     </script>
 </body>
-</html>
+</html> 
