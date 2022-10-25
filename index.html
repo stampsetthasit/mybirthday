@@ -79,56 +79,52 @@
                         </p>
                     </div>
                     <div class="pt-4" style="padding-left: 8rem; padding-right: 8rem;">
-                        <h2 class="h2 text-decoration-underline">Something You Need to Know</h2>
+                        <h2 class="h2 text-decoration-underline">Something You Need to Know 🤔</h2>
                         <div class="container">
                             <table class="table table-bordered border-4">
                                 <tbody>
                                     <tr>
-                                        <th>Date of birth</th>
+                                        <th>🎈 Date of birth</th>
                                         <td>25 October 2002, Friday</td>
                                     </tr>
                                     <tr>
-                                        <th>Time of birth</th>
+                                        <th>🕙 Time of birth</th>
                                         <td>10:19:00 GMT+7:00</td>
                                     </tr>
                                     <tr>
-                                        <th>Birth day of the week</th>
+                                        <th>👶 Birth day of the week</th>
                                         <td>Friday</td>
                                     </tr>
                                     <tr>
-                                        <th>Age in months</th>
+                                        <th>📅 Age in months</th>
                                         <td>-</td>
                                     </tr>
                                     <tr>
-                                        <th>Age in weeks</th>
+                                        <th>🌞 Age in days</th>
                                         <td>-</td>
                                     </tr>
                                     <tr>
-                                        <th>Age in days</th>
+                                        <th>⏲ Age in hours</th>
                                         <td>-</td>
                                     </tr>
                                     <tr>
-                                        <th>Age in hours</th>
+                                        <th>⌚ Age in minutes</th>
                                         <td>-</td>
                                     </tr>
                                     <tr>
-                                        <th>Age in minutes</th>
+                                        <th>⏳ Age in seconds</th>
                                         <td>-</td>
                                     </tr>
                                     <tr>
-                                        <th>Age in seconds</th>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Date of Birth in Roman Numerals</th>
+                                        <th>🔢 Date of Birth in Roman Numerals</th>
                                         <td>XXV.X.MMII</td>
                                     </tr>
                                     <tr>
-                                        <th>Zodiac Sign</th>
+                                        <th>♏ Zodiac Sign</th>
                                         <td>♏ Scorpio</td>
                                     </tr>
                                     <tr>
-                                        <th>Does i born in leap year?</th>
+                                        <th>🧐 Does i born in leap year?</th>
                                         <td style="color: rgb(255, 0, 0); font-weight: bold;">No</td>
                                     </tr>
                                 </tbody>
@@ -141,132 +137,5 @@
     </div>
 
     <!-- JavaScript -->
-    <script>
-        window.onload = event => {
-            ageCal();
-        }
-
-        const dob = new Date('25 October 2002, 10:19:00 GMT+7:00');
-        let span = document.querySelectorAll("span");
-        let td = document.querySelectorAll("td");
-
-        
-        function ageCal() {
-            var date = new Date(),
-                day = date.getDate(),
-                month = date.getMonth(),
-                year = date.getFullYear(),
-                hour = date.getHours(),
-                minute = date.getMinutes(),
-                second = date.getSeconds();
-
-            var mDay = 30 + day - dob.getDate(),
-                mMonth = 12 + month - dob.getMonth(),
-                mYear = year - 1 - dob.getFullYear(),
-                mHour = hour - 1 - dob.getHours(),
-                mMinute = 60 + minute - dob.getMinutes();
-                inMonths = (year - dob.getFullYear) * 12 + month + dob.getMonth();
-            
-            // CheckDay
-            if (mDay >= 30) {
-                mDay = 0 + mDay % 30;
-                mMonth = mMonth;
-            }
-            else {
-                mDay = mDay;
-                mMonth = mMonth;
-            }
-
-            // CheckMonth 
-            if (mMonth >= 12) {
-                mMonth = mMonth % 12;
-                mYear += 1;
-            }
-            else {
-                mDay = mDay;
-                mMonth = mMonth;
-            }
-
-            // CheckHour
-            if (mHour >= 24) {
-                mHour = mHour % 24;
-            }
-            else {
-                mHour = mHour;
-            }
-
-            // CheckMin
-            if (mMinute >= 60) {
-                mMinute = mMinute % 60;
-            }
-            else {
-                mMinute = mMinute;
-            }
-
-            // CheckMin
-            if (mMinute < 0) {
-                mHour -= 1
-                mMinute = 0
-            }
-            else {
-                mMinute = mMinute;
-            }
-            
-            // Check "0"
-            // if (mHour < 10) {
-            //     mHour = "0" + mHour
-            // }
-            // if (mMinute < 10) {
-            //     mMinute = "0" + mMinute
-            // }
-            // if (second < 10) {
-            //     second = "0" + second
-            // }
-            // if (mDay < 10) {
-            //     mDay = "0" + mDay
-            // }
-            // if (mMonth < 10) {
-            //     mMonth = "0" + mMonth
-            // }
-            // if (mYear < 10) {
-            //     mYear = "0" + mYear
-            // }
-
-            // Display Results
-            display(mYear, mMonth, mDay, mHour, mMinute, second);
-            td[3].textContent = "Calculating..."
-            td[4].textContent = "Calculating..."
-            td[5].textContent = "Calculating..."
-            td[6].textContent = "Calculating..."
-            td[7].textContent = "Calculating..."
-            td[8].textContent = "Calculating..."
-
-
-            setInterval(ageCal, 1000);
-        }
-
-        
-
-        function display(year, month, day, hour, min, sec) {
-            span[0].textContent = year
-            span[1].textContent = month
-            span[2].textContent = day
-            span[3].textContent = year
-            span[4].textContent = month
-            span[5].textContent = day
-            span[6].textContent = hour
-            span[7].textContent = min
-            span[8].textContent = sec
-            // td[3].textContent = "inMonths"
-            // td[4].textContent = "inWeeks"
-            // td[5].textContent = "inDays"
-            // td[6].textContent = "inHours"
-            // td[7].textContent = "inMinutes"
-            // td[8].textContent = "inSeconds"
-        }
-
-        
-         
-    </script>
-</body>
+    <script src="script.js"></script>
 </html> 
