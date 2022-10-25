@@ -35,6 +35,14 @@
         font-weight: 800;
         color: rgb(255, 0, 0);
     }
+    th {
+        font-size: 18px;
+        color: #f4c430;
+    }
+    td {
+        font-size: 18px;
+        color: white;
+    }
 
     .d_tbl{
         display:table;
@@ -59,15 +67,74 @@
                     </p>
                 </div>
                 <div class="mt-5 border rounded border-4">
-                    <h2 class="pt-4">✨ My Live Age 🎉</h2>
-                    <p class="text-center p-1">
-                        <span id="years" style="color: #f4c430; text-decoration: underline;">-</span> Years,
-                        <span id="months" style="color: #f4c430; text-decoration: underline;">-</span> Months,
-                        <span id="days" style="color: #f4c430; text-decoration: underline;">-</span> Days,
-                        <span id="hours">-</span> Hours,
-                        <span id="minutes">-</span> Minutes,
-                        <span id="seconds">-</span> Seconds
-                    </p>
+                    <div class="pt-4">
+                        <h2 class="h2">✨ My Live Age 🎉</h2>
+                        <p class="text-center p-1">
+                            <span id="years" style="color: #f4c430; text-decoration: underline;">-</span> Years,
+                            <span id="months" style="color: #f4c430; text-decoration: underline;">-</span> Months,
+                            <span id="days" style="color: #f4c430; text-decoration: underline;">-</span> Days,
+                            <span id="hours">-</span> Hours,
+                            <span id="minutes">-</span> Minutes,
+                            <span id="seconds">-</span> Seconds
+                        </p>
+                    </div>
+                    <div class="pt-4" style="padding-left: 8rem; padding-right: 8rem;">
+                        <h2 class="h2 text-decoration-underline">Something You Need to Know</h2>
+                        <div class="container">
+                            <table class="table table-bordered border-4">
+                                <tbody>
+                                    <tr>
+                                        <th>Date of birth</th>
+                                        <td>25 October 2002, Friday</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Time of birth</th>
+                                        <td>10:19:00 GMT+7:00</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Birth day of the week</th>
+                                        <td>Friday</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Age in months</th>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Age in weeks</th>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Age in days</th>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Age in hours</th>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Age in minutes</th>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Age in seconds</th>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date of Birth in Roman Numerals</th>
+                                        <td>XXV.X.MMII</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Zodiac Sign</th>
+                                        <td>♏ Scorpio</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Does i born in leap year?</th>
+                                        <td style="color: rgb(255, 0, 0); font-weight: bold;">No</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -76,15 +143,15 @@
     <!-- JavaScript -->
     <script>
         window.onload = event => {
-            calc();
+            ageCal();
         }
 
-        const months = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        const dob = new Date('25 October 2002, 10:30:22');
+        const dob = new Date('25 October 2002, 10:19:00 GMT+7:00');
         let span = document.querySelectorAll("span");
+        let td = document.querySelectorAll("td");
 
         
-        function calc() {
+        function ageCal() {
             var date = new Date(),
                 day = date.getDate(),
                 month = date.getMonth(),
@@ -95,7 +162,10 @@
 
             var mDay = 30 + day - dob.getDate(),
                 mMonth = 12 + month - dob.getMonth(),
-                mYear = year - 1 - dob.getFullYear();
+                mYear = year - 1 - dob.getFullYear(),
+                mHour = hour - 1 - dob.getHours(),
+                mMinute = 60 + minute - dob.getMinutes();
+                inMonths = (year - dob.getFullYear) * 12 + month + dob.getMonth();
             
             // CheckDay
             if (mDay >= 30) {
@@ -110,46 +180,92 @@
             // CheckMonth 
             if (mMonth >= 12) {
                 mMonth = mMonth % 12;
-                mYear = mYear + 1;
+                mYear += 1;
             }
             else {
                 mDay = mDay;
                 mMonth = mMonth;
             }
-            // Check Everything
-            if (hour < 10) {
-                hour = "0" + hour
+
+            // CheckHour
+            if (mHour >= 24) {
+                mHour = mHour % 24;
             }
-            if (minute < 10) {
-                minute = "0" + minute
+            else {
+                mHour = mHour;
             }
-            if (second < 10) {
-                second = "0" + second
+
+            // CheckMin
+            if (mMinute >= 60) {
+                mMinute = mMinute % 60;
             }
-            if (mDay < 10) {
-                mDay = "0" + mDay
+            else {
+                mMinute = mMinute;
             }
-            if (mMonth < 10) {
-                mMonth = "0" + mMonth
+
+            // CheckMin
+            if (mMinute < 0) {
+                mHour -= 1
+                mMinute = 0
             }
-            if (mYear < 10) {
-                mYear = "0" + mYear
+            else {
+                mMinute = mMinute;
             }
+            
+            // Check "0"
+            // if (mHour < 10) {
+            //     mHour = "0" + mHour
+            // }
+            // if (mMinute < 10) {
+            //     mMinute = "0" + mMinute
+            // }
+            // if (second < 10) {
+            //     second = "0" + second
+            // }
+            // if (mDay < 10) {
+            //     mDay = "0" + mDay
+            // }
+            // if (mMonth < 10) {
+            //     mMonth = "0" + mMonth
+            // }
+            // if (mYear < 10) {
+            //     mYear = "0" + mYear
+            // }
 
             // Display Results
-            span[0].textContent = mYear
-            span[1].textContent = mMonth
-            span[2].textContent = mDay
-            span[3].textContent = mYear
-            span[4].textContent = mMonth
-            span[5].textContent = mDay
-            span[6].textContent = hour
-            span[7].textContent = minute
-            span[8].textContent = second
+            display(mYear, mMonth, mDay, mHour, mMinute, second);
+            td[3].textContent = "Calculating..."
+            td[4].textContent = "Calculating..."
+            td[5].textContent = "Calculating..."
+            td[6].textContent = "Calculating..."
+            td[7].textContent = "Calculating..."
+            td[8].textContent = "Calculating..."
 
 
-            setInterval(calc, 1000);
+            setInterval(ageCal, 1000);
         }
+
+        
+
+        function display(year, month, day, hour, min, sec) {
+            span[0].textContent = year
+            span[1].textContent = month
+            span[2].textContent = day
+            span[3].textContent = year
+            span[4].textContent = month
+            span[5].textContent = day
+            span[6].textContent = hour
+            span[7].textContent = min
+            span[8].textContent = sec
+            // td[3].textContent = "inMonths"
+            // td[4].textContent = "inWeeks"
+            // td[5].textContent = "inDays"
+            // td[6].textContent = "inHours"
+            // td[7].textContent = "inMinutes"
+            // td[8].textContent = "inSeconds"
+        }
+
+        
          
     </script>
 </body>
