@@ -1,51 +1,47 @@
 window.onload = event => {
     ageCal();
-    ageIn();
 }
-
-const dob = new Date('25 October 2002, 10:19:00 GMT+7:00');
-let span = document.querySelectorAll("span");
-let td = document.querySelectorAll("td");
-const {resultMonths, resultDays, resultHours, resultMinutes, resultSeconds} = ageIn();
-
 
 function ageCal() {
     var date = new Date();
     var dob = new Date('25 October 2002, 10:19:00 GMT+7:00');
     var ageInMilliseconds = date - dob;
-
-    var milliseconds = ageInMilliseconds;
-    var second = 1000;
-    var minute = second * 60;
-    var hour = minute * 60;
-    var day = hour * 24;
-    var month = day * 30;
-    var year = day * 365;
-
-    var resultYears = Math.floor(milliseconds / year);
-    var resultMonths = Math.floor((milliseconds % year) / month);
-    var resultDays = Math.floor((milliseconds % month) / day);
-    var resultHours = Math.floor((milliseconds % day) / hour);
-    var resultMinutes = Math.floor((milliseconds % hour) / minute);
-    var resultSeconds = Math.floor((milliseconds % minute) / second);
-
+    var ageInYears = date.getFullYear() - dob.getFullYear();
+    var ageInMonths = date.getMonth() - dob.getMonth();
+    if (ageInMonths < 0) {
+        ageInMonths = 12 + ageInMonths;
+        ageInYears--;
+    }
+    var ageInDays = date.getDate() - dob.getDate();
+    if (ageInDays < 0) {
+        ageInDays = 30 + ageInDays;
+        ageInMonths--;
+    }
+    var ageInHours = date.getHours() - dob.getHours();
+    if (ageInHours < 0) {
+        ageInHours = 24 + ageInHours;
+        ageInDays--;
+    }
+    var ageInMinutes = date.getMinutes() - dob.getMinutes();
+    if (ageInMinutes < 0) {
+        ageInMinutes = 60 + ageInMinutes;
+        ageInHours--;
+    }
+    var ageInSeconds = date.getSeconds() - dob.getSeconds();
+    if (ageInSeconds < 0) {
+        ageInSeconds = 60 + ageInSeconds;
+        ageInMinutes--;
+    }
     // Display Results
-    display(resultYears, resultMonths, resultDays, resultHours, resultMinutes, resultSeconds);
+    display(ageInYears, ageInMonths, ageInDays, ageInHours, ageInMinutes, ageInSeconds);
 }
 
-function display(year, month, day, hour, min, sec, ageMonth, ageDay, ageHour, ageMinute, ageSecond) {
+function display(year, month, day, hour, min, sec) {
+    let span = document.querySelectorAll("span");
     span[0].textContent = year
     span[1].textContent = month
     span[2].textContent = day
-    span[3].textContent = year
-    span[4].textContent = month
-    span[5].textContent = day
-    span[6].textContent = hour
-    span[7].textContent = min
-    span[8].textContent = sec
-    td[3].textContent = ageMonth + " Months"
-    td[4].textContent = ageDay.toLocaleString("en-US") + " Days"
-    td[5].textContent = ageHour.toLocaleString("en-US") + " Hours"
-    td[6].textContent = ageMinute.toLocaleString("en-US") + " Minutes"
-    td[7].textContent = ageSecond.toLocaleString("en-US") + " Seconds"
+    span[3].textContent = hour
+    span[4].textContent = min
+    span[5].textContent = sec
 }
