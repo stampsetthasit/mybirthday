@@ -46,4 +46,10 @@ function display(year, month, week, day, hour, min, sec) {
     span[4].textContent = hour
     span[5].textContent = min
     span[6].textContent = sec
+    td[3].textContent = month + " Months"
+    td[3].textContent = week + " Weeks"
+    td[4].textContent = day.toLocaleString("en-US") + " Days"
+    td[5].textContent = hour.toLocaleString("en-US") + " Hours"
+    td[6].textContent = min.toLocaleString("en-US") + " Minutes"
+    td[7].textContent = sec.toLocaleString("en-US") + " Seconds"
 }
