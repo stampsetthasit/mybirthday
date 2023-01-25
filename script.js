@@ -17,6 +17,7 @@ function ageCal() {
         ageInDays = 30 + ageInDays;
         ageInMonths--;
     }
+    var ageInWeeks = Math.floor(ageInDays / 7);
     var ageInHours = date.getHours() - dob.getHours();
     if (ageInHours < 0) {
         ageInHours = 24 + ageInHours;
@@ -33,15 +34,16 @@ function ageCal() {
         ageInMinutes--;
     }
     // Display Results
-    display(ageInYears, ageInMonths, ageInDays, ageInHours, ageInMinutes, ageInSeconds);
+    display(ageInYears, ageInMonths, ageInWeeks, ageInDays, ageInHours, ageInMinutes, ageInSeconds);
 }
 
-function display(year, month, day, hour, min, sec) {
+function display(year, month, week, day, hour, min, sec) {
     let span = document.querySelectorAll("span");
     span[0].textContent = year
     span[1].textContent = month
-    span[2].textContent = day
-    span[3].textContent = hour
-    span[4].textContent = min
-    span[5].textContent = sec
+    span[2].textContent = week
+    span[3].textContent = day
+    span[4].textContent = hour
+    span[5].textContent = min
+    span[6].textContent = sec
 }
