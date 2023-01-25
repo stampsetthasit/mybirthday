@@ -10,113 +10,27 @@ const {resultMonths, resultDays, resultHours, resultMinutes, resultSeconds} = ag
 
 
 function ageCal() {
-    var date = new Date(),
-        day = date.getDate(),
-        month = date.getMonth(),
-        year = date.getFullYear(),
-        hour = date.getHours(),
-        minute = date.getMinutes(),
-        second = date.getSeconds();
-
-    var mDay = 30 + day - dob.getDate(),
-        mMonth = 12 + month - dob.getMonth(),
-        mYear = year - 1 - dob.getFullYear(),
-        mHour = hour - 1 - dob.getHours(),
-        mMinute = 60 + minute - dob.getMinutes();
-    
-    // CheckDay
-    if (mDay >= 30) {
-        mDay = 0 + mDay % 30;
-        mMonth = mMonth;
-    }
-    else {
-        mDay = mDay;
-        mMonth = mMonth;
-    }
-
-    // CheckMonth 
-    if (mMonth >= 12) {
-        mMonth = mMonth % 12;
-        mYear += 1;
-    }
-    else {
-        mDay = mDay;
-        mMonth = mMonth;
-    }
-
-    // CheckHour
-    if (mHour >= 24) {
-        mHour = mHour % 24;
-    }
-    else {
-        mHour = mHour;
-    }
-
-    // CheckMin
-    if (mMinute >= 60) {
-        mMinute = mMinute % 60;
-    }
-    else {
-        mMinute = mMinute;
-    }
-
-    // CheckMin
-    if (mMinute < 0) {
-        mHour -= 1
-        mMinute = 0
-    }
-    else {
-        mMinute = mMinute;
-    }
-    // Check "0"
-    // if (mHour < 10) {
-    //     mHour = "0" + mHour
-    // }
-    // if (mMinute < 10) {
-    //     mMinute = "0" + mMinute
-    // }
-    // if (second < 10) {
-    //     second = "0" + second
-    // }
-    // if (mDay < 10) {
-    //     mDay = "0" + mDay
-    // }
-    // if (mMonth < 10) {
-    //     mMonth = "0" + mMonth
-    // }
-    // if (mYear < 10) {
-    //     mYear = "0" + mYear
-    // }
-
-    // Display Results
-    display(mYear, mMonth, mDay, mHour, mMinute, second, resultMonths, resultDays, resultHours, resultMinutes, resultSeconds);
-
-
-    setInterval(ageCal, 1000);
-}
-
-function ageIn() {
-    var DOB = "25 October 2002";
-    var mdob = Date.parse(DOB);
-    var mnow = Date.now();
-    var ageInMilliseconds = mnow-mdob;
+    var date = new Date();
+    var dob = new Date('25 October 2002, 10:19:00 GMT+7:00');
+    var ageInMilliseconds = date - dob;
 
     var milliseconds = ageInMilliseconds;
     var second = 1000;
-    var minute = second*60;
-    var hour = minute*60;
-    var day = hour*24;
-    var month = day*30; 
-    var year = day*365;
+    var minute = second * 60;
+    var hour = minute * 60;
+    var day = hour * 24;
+    var month = day * 30;
+    var year = day * 365;
 
-    const resultYears = Math.round(milliseconds/year),
-        resultMonths = resultYears*12,
-        resultDays = resultYears*365,
-        resultHours = Math.round(milliseconds/hour),
-        resultMinutes = Math.round(milliseconds/minute),
-        resultSeconds = Math.round(milliseconds/second);
+    var resultYears = Math.floor(milliseconds / year);
+    var resultMonths = Math.floor((milliseconds % year) / month);
+    var resultDays = Math.floor((milliseconds % month) / day);
+    var resultHours = Math.floor((milliseconds % day) / hour);
+    var resultMinutes = Math.floor((milliseconds % hour) / minute);
+    var resultSeconds = Math.floor((milliseconds % minute) / second);
 
-    return {resultMonths, resultDays, resultHours, resultMinutes, resultSeconds}
+    // Display Results
+    display(resultYears, resultMonths, resultDays, resultHours, resultMinutes, resultSeconds);
 }
 
 function display(year, month, day, hour, min, sec, ageMonth, ageDay, ageHour, ageMinute, ageSecond) {
