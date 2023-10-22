@@ -41,10 +41,8 @@ function calculateTimeSinceBirth() {
   document.getElementById("age-in-months").innerText = months;
   document.getElementById("age-in-days").innerText = days.toLocaleString();
   document.getElementById("age-in-hours").innerText = hours.toLocaleString();
-  document.getElementById("age-in-minutes").innerText =
-    minutes.toLocaleString();
-  document.getElementById("age-in-seconds").innerText =
-    seconds.toLocaleString();
+  document.getElementById("age-in-minutes").innerText = minutes.toLocaleString();
+  document.getElementById("age-in-seconds").innerText = seconds.toLocaleString();
 }
 
 updateLiveAge();
