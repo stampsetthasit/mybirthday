@@ -4,78 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setthasit's birthday</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>October 25, 2002</title>
+    <meta name="description" content="October 25, 2002 is my birthday. ">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
 </head>
-<!-- CSS -->
-<style>
-    *, *::before, *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        background-color: #6495ED;
-        font-family: 'Varela Round', sans-serif;
-        color: white;
-    }
-
-    p {
-        font-size: 20px;
-        font-weight: 400;
-    }
-
-    span {
-        font-size: 24px;
-        font-weight: 800;
-        color: rgb(255, 0, 0);
-    }
-    th {
-        font-size: 18px;
-        color: #f4c430;
-    }
-    td {
-        font-size: 18px;
-        color: white;
-    }
-
-    .d_tbl{
-        display:table;
-        width:100%;
-        height:200px;
-    }
-
-    .d_tblCel{
-        vertical-align: middle;
-        display: table-cell;
-        text-align: center;
-    }
-</style>
 <body>
     <div class="container" style="margin-bottom: 5rem;">
         <div class="d_tbl">
             <div class="d_tblCel">
                 <div class="mt-5">
-                    <h1>Friday, 25 October 2002 is Setthasit's birthday. 🎂</h1>
+                    <h1>Friday, 25 October 2002 is my birthday 🎂</h1>
                     <p class="text-center">
-                        Well, I'm <span id="years">-</span> Years, <span id="months">-</span> Months, <span id="days">-</span> Days old
+                        Well, I'm <span id="years-old">-</span> Years, <span id="months-old">-</span> Months, <span id="days-old">-</span> Days old
                     </p>
                 </div>
                 <div class="mt-5 border rounded border-4">
                     <div class="pt-4">
                         <h2 class="h2">✨ My Live Age 🎉</h2>
                         <p class="text-center p-1">
-                            <span id="years" style="color: #f4c430; text-decoration: underline;">-</span> Years,
-                            <span id="months" style="color: #f4c430; text-decoration: underline;">-</span> Months,
-                            <span id="days" style="color: #f4c430; text-decoration: underline;">-</span> Days,
-                            <span id="hours">-</span> Hours,
-                            <span id="minutes">-</span> Minutes,
-                            <span id="seconds">-</span> Seconds
+                            <span id="live-years" style="color: #f4c430; text-decoration: underline;">-</span> Years,
+                            <span id="live-months" style="color: #f4c430; text-decoration: underline;">-</span> Months,
+                            <span id="live-days" style="color: #f4c430; text-decoration: underline;">-</span> Days,
+                            <span id="live-hours">-</span> Hours,
+                            <span id="live-minutes">-</span> Minutes,
+                            <span id="live-seconds">-</span> Seconds
                         </p>
                     </div>
                     <div class="pt-4" style="padding-left: 8rem; padding-right: 8rem;">
@@ -88,32 +45,28 @@
                                         <td>25 October 2002, Friday</td>
                                     </tr>
                                     <tr>
-                                        <th>🕙 Time of birth</th>
-                                        <td>10:19:00 GMT+7:00</td>
-                                    </tr>
-                                    <tr>
                                         <th>👶 Birth day of the week</th>
                                         <td>Friday</td>
                                     </tr>
                                     <tr>
                                         <th>📅 Age in months</th>
-                                        <td>-</td>
+                                        <td id="age-in-months">-</td>
                                     </tr>
                                     <tr>
                                         <th>🌞 Age in days</th>
-                                        <td>-</td>
+                                        <td id="age-in-days">-</td>
                                     </tr>
                                     <tr>
-                                        <th>⏲ Age in hours</th>
-                                        <td>-</td>
+                                        <th>⏰ Age in hours</th>
+                                        <td id="age-in-hours">-</td>
                                     </tr>
                                     <tr>
                                         <th>⌚ Age in minutes</th>
-                                        <td>-</td>
+                                        <td id="age-in-minutes">-</td>
                                     </tr>
                                     <tr>
                                         <th>⏳ Age in seconds</th>
-                                        <td>-</td>
+                                        <td id="age-in-seconds">-</td>
                                     </tr>
                                     <tr>
                                         <th>🔢 Date of Birth in Roman Numerals</th>
@@ -122,10 +75,6 @@
                                     <tr>
                                         <th>♏ Zodiac Sign</th>
                                         <td>♏ Scorpio</td>
-                                    </tr>
-                                    <tr>
-                                        <th>🧐 Does i born in leap year?</th>
-                                        <td style="color: rgb(255, 0, 0); font-weight: bold;">No</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -148,4 +97,5 @@
 
     <!-- JavaScript -->
     <script src="script.js"></script>
+</body>
 </html> 
