@@ -49,3 +49,4 @@ updateLiveAge();
 calculateTimeSinceBirth();
 
 setInterval(updateLiveAge, 1000);
+setInterval(calculateTimeSinceBirth, 1000);
