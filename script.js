@@ -1,5 +1,5 @@
 function updateLiveAge() {
-  var birthDate = new Date("October 25, 2002");
+  var birthDate = new Date("October 25, 2002 10:19:00");
   var currentDate = new Date();
 
   var difference = currentDate - birthDate;
@@ -25,7 +25,7 @@ function updateLiveAge() {
 }
 
 function calculateTimeSinceBirth() {
-  var birthDate = new Date("October 25, 2002");
+  var birthDate = new Date("October 25, 2002 10:19:00");
   var currentDate = new Date();
 
   var difference = currentDate - birthDate;
@@ -34,11 +34,13 @@ function calculateTimeSinceBirth() {
   var minutes = Math.floor(seconds / 60);
   var hours = Math.floor(minutes / 60);
   var days = Math.floor(hours / 24);
+  var weeks = Math.floor(days / 7);
   var months =
     (currentDate.getFullYear() - birthDate.getFullYear()) * 12 +
     (currentDate.getMonth() - birthDate.getMonth());
 
-  document.getElementById("age-in-months").innerText = months;
+  document.getElementById("age-in-months").innerText = months.toLocaleString();
+  document.getElementById("age-in-weeks").innerText = weeks.toLocaleString();
   document.getElementById("age-in-days").innerText = days.toLocaleString();
   document.getElementById("age-in-hours").innerText = hours.toLocaleString();
   document.getElementById("age-in-minutes").innerText = minutes.toLocaleString();
