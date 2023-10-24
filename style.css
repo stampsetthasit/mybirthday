@@ -471,14 +471,14 @@ nav#dot-nav a.active {
 }
 
 .section-astronomy {
-    background-image: url(/assets/1@3x.png);
+    background-image: url(/1@3x.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
 }
 
 .section-zodiac {
-    background-image: url(/assets/3@3x.png);
+    background-image: url(/3@3x.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
